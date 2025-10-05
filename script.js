@@ -1,4 +1,4 @@
-// 🌸 Floating hearts animation
+// Floating hearts
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -13,10 +13,9 @@ function createHeart() {
 }
 setInterval(createHeart, 400);
 
-// 🎵 Optional: Background Music
+// Background music
 const playBtn = document.getElementById("playMusic");
-const audio = new Audio("audio/song.mp3"); // তোমার গান/voice note path দাও
-
+const audio = new Audio("audio/song.mp3"); // আপনার music file path
 if (playBtn) {
   playBtn.addEventListener("click", () => {
     if (audio.paused) {
@@ -29,7 +28,7 @@ if (playBtn) {
   });
 }
 
-// 🎁 Confetti effect when clicking on 'Happy Birthday' text
+// Confetti effect on clicking h1
 const title = document.querySelector("h1");
 if (title) {
   title.addEventListener("click", () => {
@@ -41,18 +40,6 @@ if (title) {
       confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
       document.body.appendChild(confetti);
       setTimeout(() => confetti.remove(), 4000);
-    }
-  });
-}
-
-// ❤️ Smooth scroll effect
-const links = document.querySelectorAll('a[href^="#"]');
-for (let link of links) {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
     }
   });
 }
