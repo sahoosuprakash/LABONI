@@ -1,0 +1,85 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #ffe6f0, #ffd6e8);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 50px 20px 20px;
+}
+
+header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3em;
+  color: #ff4d94;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.5em;
+  color: #ff3366;
+}
+
+.birthday-message {
+  margin: 50px 20px;
+  font-size: 1.8em;
+  color: #e60073;
+  line-height: 1.5;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 10px;
+  gap: 20px;
+}
+
+.gallery img {
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  margin: 50px 0;
+  font-size: 1em;
+  color: #ff1a75;
+}
+
+/* Floating Hearts Animation */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: float 6s infinite;
+  border-radius: 5px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart:before { top: -10px; left: 0; }
+.heart:after { left: 10px; top: 0; }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+}
