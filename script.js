@@ -1,4 +1,7 @@
-// Floating hearts
+
+// ======================
+// Floating Hearts
+// ======================
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -13,7 +16,9 @@ function createHeart() {
 }
 setInterval(createHeart, 400);
 
-// Background music
+// ======================
+// Background Music
+// ======================
 const playBtn = document.getElementById("playMusic");
 const audio = new Audio("audio/song.mp3"); // আপনার music file path
 if (playBtn) {
@@ -28,7 +33,9 @@ if (playBtn) {
   });
 }
 
-// Confetti effect on clicking h1
+// ======================
+// Confetti Effect
+// ======================
 const title = document.querySelector("h1");
 if (title) {
   title.addEventListener("click", () => {
@@ -42,4 +49,35 @@ if (title) {
       setTimeout(() => confetti.remove(), 4000);
     }
   });
+}
+
+// ======================
+// Touch/Click Messages
+// ======================
+const messages = [
+  "Happy Birthday Laboni! 💖",
+  "You make every day magical ✨",
+  "May your day be full of smiles 😘",
+  "Love you forever ❤️",
+  "You’re my sunshine ☀️"
+];
+
+let index = 0;
+const messageDiv = document.getElementById("touchMessage");
+
+// Initialize first message
+if(messageDiv) messageDiv.innerText = messages[0];
+
+function changeMessage() {
+  messageDiv.style.opacity = 0; // fade out
+  setTimeout(() => {
+    messageDiv.innerText = messages[index];
+    index = (index + 1) % messages.length;
+    messageDiv.style.opacity = 1; // fade in
+  }, 300);
+}
+
+if(messageDiv) {
+  messageDiv.addEventListener("click", changeMessage);
+  messageDiv.addEventListener("touchstart", changeMessage);
 }
