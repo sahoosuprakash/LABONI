@@ -1,4 +1,4 @@
-/* style.css */
+/* General styles */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -8,14 +8,13 @@ body {
 }
 
 header {
-  padding: 50px 20px 20px;
+  padding: 50px 20px;
 }
 
 header h1 {
   font-family: 'Pacifico', cursive;
   font-size: 3em;
   color: #ff4d94;
-  margin-bottom: 10px;
 }
 
 header p {
@@ -23,13 +22,22 @@ header p {
   color: #ff3366;
 }
 
-.birthday-message {
-  margin: 50px 20px;
-  font-size: 1.8em;
-  color: #e60073;
-  line-height: 1.5;
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #ff4d94;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
 }
 
+button:hover {
+  background: #ff1a75;
+}
+
+/* Gallery */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -49,37 +57,31 @@ header p {
   transform: scale(1.1);
 }
 
-footer {
-  margin: 50px 0;
-  font-size: 1em;
-  color: #ff1a75;
-}
-
-/* Floating Hearts Animation */
+/* Floating hearts */
 .heart {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  transform: rotate(45deg);
-  animation: float 6s infinite;
-  border-radius: 5px;
+  position: fixed;
+  top: -10px;
+  font-size: 24px;
+  animation: fall linear forwards;
+  z-index: 9999;
 }
 
-.heart:before,
-.heart:after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: 0;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
+  animation: confettiFall linear forwards;
 }
 
-.heart:before { top: -10px; left: 0; }
-.heart:after { left: 10px; top: 0; }
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-  100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+@keyframes confettiFall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
 }
