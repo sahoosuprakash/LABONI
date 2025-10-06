@@ -1,4 +1,3 @@
-
 // ======================
 // Floating Hearts
 // ======================
@@ -20,7 +19,7 @@ setInterval(createHeart, 400);
 // Background Music
 // ======================
 const playBtn = document.getElementById("playMusic");
-const audio = new Audio("audio/song.mp3"); // আপনার music file path
+const audio = new Audio("audio/song.mp3");
 if (playBtn) {
   playBtn.addEventListener("click", () => {
     if (audio.paused) {
@@ -34,7 +33,7 @@ if (playBtn) {
 }
 
 // ======================
-// Confetti Effect
+// Confetti Effect (click on title)
 // ======================
 const title = document.querySelector("h1");
 if (title) {
@@ -52,32 +51,29 @@ if (title) {
 }
 
 // ======================
-// Touch/Click Messages
+// Auto Changing Messages (Every 2 Seconds)
 // ======================
 const messages = [
   "Happy Birthday Laboni! 💖",
   "You make every day magical ✨",
   "May your day be full of smiles 😘",
   "Love you forever ❤️",
-  "You’re my sunshine ☀️"
+  "You’re my sunshine ☀️",
+  "You are my favorite reason to smile 🌸"
 ];
 
 let index = 0;
 const messageDiv = document.getElementById("touchMessage");
 
-// Initialize first message
-if(messageDiv) messageDiv.innerText = messages[0];
+if (messageDiv) {
+  messageDiv.innerText = messages[0];
 
-function changeMessage() {
-  messageDiv.style.opacity = 0; // fade out
-  setTimeout(() => {
-    messageDiv.innerText = messages[index];
-    index = (index + 1) % messages.length;
-    messageDiv.style.opacity = 1; // fade in
-  }, 300);
-}
-
-if(messageDiv) {
-  messageDiv.addEventListener("click", changeMessage);
-  messageDiv.addEventListener("touchstart", changeMessage);
+  setInterval(() => {
+    messageDiv.style.opacity = 0; // fade out
+    setTimeout(() => {
+      index = (index + 1) % messages.length;
+      messageDiv.innerText = messages[index];
+      messageDiv.style.opacity = 1; // fade in
+    }, 500);
+  }, 2000); // 2 seconds interval
 }
