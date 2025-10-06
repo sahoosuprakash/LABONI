@@ -1,192 +1,124 @@
-/* General Page Setup */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+/* Falling LOVE effect */
+#love-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100;
 }
 
+/* 💖 LOVE Elements */
+.love {
+  position: absolute;
+  top: -20px;
+  color: #ff4d6d;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 15px rgba(255, 105, 180, 0.9),
+               0 0 25px rgba(255, 0, 128, 0.8);
+  animation: fallLove linear forwards, glowPulse 1.5s ease-in-out infinite alternate;
+}
+
+/* 💫 Falling animation */
+@keyframes fallLove {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ✨ Glow pulse effect */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 0, 150, 0.8),
+                 0 0 20px rgba(255, 150, 200, 0.9);
+  }
+  100% {
+    text-shadow: 0 0 25px rgba(255, 0, 150, 1),
+                 0 0 40px rgba(255, 255, 255, 1);
+  }
+}
+
+/* Floating Message Animation */
+.floating-message {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 192, 203, 0.8);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 101;
+}
+
+.floating-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-15px);
+}
+
+/* Header, Footer, and Other Basic Styling */
 body {
-  background: linear-gradient(135deg, #ffe0f0, #fff0f5);
-  color: #333;
+  margin: 0;
+  background: linear-gradient(135deg, #ffe0f0, #ffd6eb, #fff0f7);
+  font-family: "Poppins", sans-serif;
   text-align: center;
   overflow-x: hidden;
 }
 
-/* Header Section */
 header {
-  padding: 40px 20px;
-  background: linear-gradient(90deg, #ff66b2, #ff99cc);
-  color: white;
-  animation: glow 3s infinite alternate;
+  padding: 30px;
+  background: rgba(255, 105, 180, 0.2);
+  border-bottom: 2px solid #ff8ec8;
 }
 
-header h1 {
-  font-size: 2.8em;
-  margin-bottom: 10px;
+h1 {
+  color: #ff3b9a;
+  text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
 }
 
-header p {
-  font-size: 1.2em;
-}
-
-#playMusic {
-  background-color: white;
-  color: #ff66b2;
+button {
+  background: #ff80bf;
   border: none;
   padding: 10px 20px;
-  margin-top: 15px;
-  border-radius: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-#playMusic:hover {
-  background-color: #ff3385;
-  color: white;
-}
-
-/* Floating Message */
-.floating-message {
-  position: fixed;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5em;
-  color: #ff0066;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 100;
-}
-
-/* Gallery Grid */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 40px;
-}
-
-/* 6 Different Animations for Photos */
-.gallery img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-/* Animation 1 - Floating */
-.gallery img:nth-child(1) {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* Animation 2 - Pulse */
-.gallery img:nth-child(2) {
-  animation: pulse 3s ease-in-out infinite;
-}
-
-/* Animation 3 - Rotate */
-.gallery img:nth-child(3) {
-  animation: rotate 6s linear infinite;
-}
-
-/* Animation 4 - Bounce */
-.gallery img:nth-child(4) {
-  animation: bounce 3s ease-in-out infinite;
-}
-
-/* Animation 5 - Glow */
-.gallery img:nth-child(5) {
-  animation: glowPhoto 4s ease-in-out infinite;
-}
-
-/* Animation 6 - Slide */
-.gallery img:nth-child(6) {
-  animation: slide 5s ease-in-out infinite;
-}
-
-/* Others hover effect */
-.gallery img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 25px rgba(255, 0, 102, 0.4);
-}
-
-/* Special Message Section */
-#message {
-  padding: 40px 20px;
-  background: white;
-  margin: 40px auto;
-  width: 85%;
   border-radius: 25px;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
-  animation: fadeIn 2s ease-in;
-}
-
-#message h2 {
-  color: #ff4081;
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
-
-#message p {
-  line-height: 1.6em;
-  font-size: 1.1em;
-  color: #444;
-}
-
-/* Footer */
-footer {
-  background: #ff66b2;
   color: white;
-  padding: 20px;
-  font-size: 0.9em;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-/* ============ ANIMATIONS ============ */
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px #fff, 0 0 20px #ff99cc; }
-  to { text-shadow: 0 0 20px #fff, 0 0 40px #ff3399; }
+button:hover {
+  background: #ff4da6;
+  transform: scale(1.05);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+.gallery img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+  transition: transform 0.3s ease;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+.gallery img:hover {
+  transform: scale(1.1);
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes glowPhoto {
-  0%, 100% { box-shadow: 0 0 10px #ffb3d9; }
-  50% { box-shadow: 0 0 25px #ff3385; }
-}
-
-@keyframes slide {
-  0% { transform: translateX(-10px); }
-  50% { transform: translateX(10px); }
-  100% { transform: translateX(-10px); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+footer {
+  background: rgba(255, 182, 193, 0.5);
+  padding: 15px;
+  font-weight: bold;
 }
